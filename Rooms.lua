@@ -12,7 +12,11 @@ local purplebox = {
     y = 300,
     wdith = 30,
     height = 60,
-    color = {140, 0, 191}
+    color = {140, 0, 191},
+    onClick = function(self)
+        game_state.current_room = "room2"
+    end
+        
         
     
 }
@@ -24,9 +28,17 @@ local bluebox = {
     y = 200,
     wdith = 30,
     height = 60,
-    color = {0, 0, 255}
+    color = {0, 0, 255},
+    onClick = function(self)
+        print("You clicked the blue box!")
+    end
         
     
 }
 table.insert(rooms.room1.objects, bluebox)
+rooms.room2 = {
+        name = "room 2",
+        BackgroundColor = {1, 0, 0},
+        objects= {}
+    }
 end

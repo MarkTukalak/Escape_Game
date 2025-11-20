@@ -9,6 +9,7 @@ function love.load()
         screen = "game",
         current_room = "room1"
     }
+    hoverObject = nil
 end
 function love.update(dt)
 if game_state.screen == "game" then
@@ -38,8 +39,22 @@ function drawGame()
         love.graphics.setColor(object.color)
         love.graphics.rectangle("fill", object.x, object.y, object.wdith, object.height)
     end
+    if hoverObject then
+        love.graphics.setColor(1, 1, 1)
+        love.graphics.print(hoverObject.description, 10, 10)
+        love.graphics.rectangle("fill", hoverObject.x, hoverObject.y, hoverObject.wdith, hoverObject.height)
+    end
 end
 function checkCollision(ax, ay, bx, by, bw, bh)
     return ax >= bx and ax <= bx + bw and
-           ax >= by and ay <= by + bh
+           ay >= by and ay <= by + bh
 end
+function love.mousepressed(x, y, button)
+    if button == 1  then
+        if game_state.screen == "game" then 
+            if hoverObject then
+                hoverObject:onClick()
+            end
+        end
+    end
+end 
