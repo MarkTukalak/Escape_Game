@@ -6,7 +6,7 @@ function love.load()
     initializeMenu ()
     initializeRooms()
     game_state = {
-        screen = "game",
+        screen = "menu",
         current_room = "room1"
     }
     hoverObject = nil
@@ -55,6 +55,12 @@ function love.mousepressed(x, y, button)
             if hoverObject then
                 hoverObject:onClick()
             end
+            elseif game_state.screen =="menu"  then
+                if checkCollision(x, y, startbtn.x, startbtn.y, startbtn.width, startbtn.height) then
+                    startbtn.onclick()
+                elseif checkCollision(x, y, Quitbtn.x, Quitbtn.y, Quitbtn.width, Quitbtn.height) then
+                    Quitbtn.onclick()
+                end
         end
     end
 end 

@@ -1,6 +1,6 @@
 function initializeMenu()
     love.graphics.setFont(love.graphics.newFont(40))
-    love.window.setTitle("ESCAPE_GAME")
+    love.window.setTitle("ESCAPE GAME")
 
      startbtn = {
         x = 300,
@@ -38,5 +38,5 @@ function drawMenu()
 end
 
 function start()
-    
+    game_state.screen = "game"
 end
