@@ -2,6 +2,8 @@ function initializeMenu()
     love.graphics.setFont(love.graphics.newFont(40))
     love.window.setTitle("ESCAPE GAME")
 
+    backgroundImage = love.graphics.newImage("bgimage.jpg")
+
      startbtn = {
         x = 300,
         y = 400,
@@ -25,6 +27,7 @@ function initializeMenu()
 end
 
 function drawMenu()
+    love.graphics.draw(backgroundImage, 0, 0, 0, love.graphics.getWidth() / backgroundImage:getWidth(), love.graphics.getHeight() / backgroundImage:getHeight())
     love.graphics.setColor(0, 1, 2)
     love.graphics.printf("ESCAPE GAME", 0, 100, love.graphics.getWidth(), "center")
     love.graphics.setColor(startbtn.backgroundColor)
